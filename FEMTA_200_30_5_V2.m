@@ -89,10 +89,10 @@ Rs = [0 0 0 0];
 Ds = [0 0 0 0];
 Fls = [250 250 250 250];
 file = fopen('./gcode/FEMTA_200_30_5_OP8_ZP_38inEM_SMAX.tap','w');
-N = poly_groove(file, N, b, 5, Fls, [0, 0, 0], Ps, Rs, Ds, 0, 0, 1, 9.8, 0.22, true, true, false);
+N = poly_groove(file, N, b, 5, Fls, [0, 0, 0], Ps, Rs, Ds, 0, 0, 1, 10, 0.22, true, true, false);
 fclose(file);
 
 file = fopen('./gcode/FEMTA_200_30_5_OP9_ZP_38inEM_SMAX.tap','w');
 Ps = [(b1/2) - (b/2), 35/2 + b/2; 40 + b/2 + (b1/2), 35/2 + b/2 ; 40 + b/2 + (b1/2), -35/2 - b/2; (b1/2) - (b/2), -35/2 - b/2; (b1/2) - (b/2), 35/2 + b/2];
-N = poly_groove(file, N, b, 5, Fls, [0, 0, 0], Ps, Rs, Ds, 0, 0, 1, 9.8, 0.22, false, true, true);
+N = poly_groove(file, N, b, 5, Fls, [0, 0, 0], Ps, Rs, Ds, 0, 0, 1, 10, 0.22, false, true, true);
 fclose(file);
