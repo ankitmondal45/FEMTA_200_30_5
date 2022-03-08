@@ -65,15 +65,15 @@ Fls = [250];
 
 file = fopen('./gcode/FEMTA_200_30_5_OP4_3mmQM_SMAX.tap', 'w');
 % RHS Polygroove (Quarter Round)
-N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, -3, 0, 0.05, 3, 3, true, true, false);
+N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, -4, 0, 0.05, 3, 3, true, true, false);
 Ps = [-21.525/2 - 4, 38/2; -21.525/2 - 4,-38/2];
-N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, 3, 0, 0.05, 3, 3, false, true, false);
+N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, 4, 0, 0.05, 3, 3, false, true, false);
 
 % LHS Polygroove (Quarter Round)
 Ps = [21.525/2 + 24, 38/2; 21.525/2 + 24,-38/2];
-N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, 3, 0, 0.05, 3, 3, false, true, false);
+N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, 4, 0, 0.05, 3, 3, false, true, false);
 Ps = [-21.525/2 - 24, 38/2; -21.525/2 - 24,-38/2];
-N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, -3, 0, 0.05, 3, 3, false, true, true);
+N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, -4, 0, 0.05, 3, 3, false, true, true);
 fclose(file);
 
 %% Face off remaining stock from parts
