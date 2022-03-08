@@ -84,12 +84,12 @@ fclose(file);
 %% Cut out parts
 b = 6;
 b1 = 3/8*25.4;
-Ps = [-40 - b/2, 35/2 + b/2; b - b1, 35/2 + b/2 ; b - b1, -35/2 - b/2; -40 - b/2, -35/2 - b/2; -40 - b/2, 35/2 + b/2];
+Ps = [-40 - b/2 - (b1/2), 35/2 + b/2; b - b1, 35/2 + b/2 ; b - b1, -35/2 - b/2; -40 - b/2 - (b1/2), -35/2 - b/2; -40 - b/2 - (b1/2), 35/2 + b/2];
 Rs = [0 0 0 0];
 Ds = [0 0 0 0];
 Fls = [250 250 250 250];
 file = fopen('./gcode/FEMTA_200_30_5_OP8_ZP_38inEM_SMAX.tap','w');
 N = poly_groove(file, N, b, 5, Fls, [0, 0, 0], Ps, Rs, Ds, 0, 0, 1, 9.8, 0.22, true, true, false);
-Ps = [b1 - b, 35/2 + b/2; 40 + b/2, 35/2 + b/2 ; 40 + b/2, -35/2 - b/2; b1 - b, -35/2 - b/2; b1 - b, 35/2 + b/2];
+Ps = [b1 - b, 35/2 + b/2; 40 + b/2 + (b1/2), 35/2 + b/2 ; 40 + b/2 + (b1/2), -35/2 - b/2; b1 - b, -35/2 - b/2; b1 - b, 35/2 + b/2];
 N = poly_groove(file, N, b, 5, Fls, [0, 0, 0], Ps, Rs, Ds, 0, 0, 1, 9.8, 0.22, false, true, true);
 fclose(file);
