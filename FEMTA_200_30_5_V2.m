@@ -25,7 +25,7 @@ Fd = 5;
 dz = 0.25;
 Z0 = dz;
 
-b = 6;
+b = 3/8 * 25.4;
 
 N = 1;
 
@@ -52,7 +52,7 @@ fclose(file);
 % defining quarter round bit 
 %.. quarter-round set 1
 N = 1;
-b = 8;
+br = 8;
 
 % We need to calculate the value of X based on buffer and bit
 X = 0;
@@ -67,15 +67,15 @@ Fls = [250];
 
 file = fopen('./gcode/FEMTA_200_30_5_OP4_3mmQM_SMAX.tap', 'w');
 % RHS Polygroove (Quarter Round)
-N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, -3, 0, 0.05, 3, 3, true, true, false);
+N = poly_groove(file, N, br, 25, Fls, [0, 0, 0], Ps, Rs, Ds, -3, 0, 0.05, 3, 3, true, true, false);
 Ps = [-6 - b/2 - b - X, 38/2; -6 - b/2 - b - X, -38/2];
-N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, 3, 0, 0.05, 3, 3, false, true, false);
+N = poly_groove(file, N, br, 25, Fls, [0, 0, 0], Ps, Rs, Ds, 3, 0, 0.05, 3, 3, false, true, false);
 
 % LHS Polygroove (Quarter Round)
 Ps = [6 + b/2 + b + 18 + X, 38/2; 6 + b/2 + b + 18 + X, -38/2];
-N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, 3, 0, 0.05, 3, 3, false, true, false);
+N = poly_groove(file, N, br, 25, Fls, [0, 0, 0], Ps, Rs, Ds, 3, 0, 0.05, 3, 3, false, true, false);
 Ps = [-6 - b/2 - b - 18 - X, 38/2; -6 - b/2 - b - 18 - X, -38/2];
-N = poly_groove(file, N, b, 25, Fls, [0, 0, 0], Ps, Rs, Ds, -3, 0, 0.05, 3, 3, false, true, true);
+N = poly_groove(file, N, br, 25, Fls, [0, 0, 0], Ps, Rs, Ds, -3, 0, 0.05, 3, 3, false, true, true);
 fclose(file);
 
 %% Face off remaining stock from parts
@@ -90,11 +90,11 @@ Ps = [-40 - b/2 - b, 35/2 + b/2; -b/2 - b, 35/2 + b/2 ; -b/2 - b, -35/2 - b/2; -
 Rs = [0 0 0 0];
 Ds = [0 0 0 0];
 Fls = [250 250 250 250];
-file = fopen('./gcode/FEMTA_200_30_5_OP8_ZP_38inEM_SMAX.tap','w');
+file = fopen('./gcode/FEMTA_200_30_5_OP5_ZP_38inEM_SMAX.tap','w');
 N = poly_groove(file, N, b, 5, Fls, [0, 0, 0], Ps, Rs, Ds, 0, 0, 1, 10, 0.22, true, true, false);
 fclose(file);
 
-file = fopen('./gcode/FEMTA_200_30_5_OP9_ZP_38inEM_SMAX.tap','w');
+file = fopen('./gcode/FEMTA_200_30_5_OP6_ZP_38inEM_SMAX.tap','w');
 Ps = [b/2 + b, 35/2 + b/2; 40 + b/2 + b, 35/2 + b/2 ; 40 + b/2 + b, -35/2 - b/2; b/2 + b, -35/2 - b/2; b/2 + b, 35/2 + b/2];
 N = poly_groove(file, N, b, 5, Fls, [0, 0, 0], Ps, Rs, Ds, 0, 0, 1, 10, 0.22, false, true, true);
 fclose(file);
